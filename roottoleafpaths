@@ -1,0 +1,21 @@
+
+def Paths(root):
+    
+    res = []
+    def fun(root, l):
+        if root==None:
+            return
+        
+        l.append(root.data)
+        if root.left == None and root.right==None:
+            temp = l[:]
+            res.append(temp)
+    
+        fun(root.left, l)
+        fun(root.right, l)
+        
+        l.pop()
+    
+    fun(root, [])
+        
+    return res
